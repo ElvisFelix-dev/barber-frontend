@@ -16,10 +16,12 @@ html::-webkit-scrollbar{
 html{
   scrollbar-width: none;
   background-color: #181818;
+  text-decoration: none;
 }
 
 body{
   background-color: #181818;
+  text-decoration: none;
 }
 
 /* antd override */
