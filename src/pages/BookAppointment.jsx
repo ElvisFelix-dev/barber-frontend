@@ -9,6 +9,8 @@ import api from '../service/api'
 import { useNavigate, useParams } from 'react-router-dom'
 import moment from 'moment'
 
+import { Helmet } from 'react-helmet-async'
+
 function BookAppointment() {
   const [isAvailable, setIsAvailable] = useState(false)
   const navigate = useNavigate()
@@ -108,6 +110,9 @@ function BookAppointment() {
   }, [])
   return (
     <Layout>
+      <Helmet>
+        <title>Cleber Mendes BarberShop | Agendar</title>
+      </Helmet>
       {doctor && (
         <div>
           <h1 className="page-title">

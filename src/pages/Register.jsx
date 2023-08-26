@@ -1,11 +1,21 @@
 import { Button, Form, Input, Row, Col } from 'antd'
+import {
+  UserOutlined,
+  LockOutlined,
+  SmileOutlined,
+  EyeInvisibleOutlined,
+  EyeTwoTone,
+} from '@ant-design/icons'
+
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
+import { Helmet } from 'react-helmet-async'
+
 import api from '../service/api'
 import { toast } from 'react-toastify'
 import { hideLoading, showLoading } from '../redux/alertsSlice'
 
-import imgLogo from '../assets/imgLogo.png'
+import cleberLogo from '../assets/cleberLogo.jpg'
 
 function Register() {
   const dispatch = useDispatch()
@@ -29,29 +39,56 @@ function Register() {
 
   return (
     <div className="authentication">
+      <Helmet>
+        <title>Cleber Mendes BarberShop | Cadastrar</title>
+      </Helmet>
       <div className="authentication-form card p-3">
         <div>
           <Row justify="center">
             <Col>
               <img
                 className="logo"
-                src={imgLogo}
+                src={cleberLogo}
                 alt="Logo"
                 style={{ marginBottom: '20px' }}
               />
             </Col>
           </Row>
         </div>
+
         <h1 className="card-title">Fazer Cadastro</h1>
         <Form layout="vertical" onFinish={onFinish}>
-          <Form.Item name="name">
-            <Input placeholder="Nome" />
+          <Form.Item
+            name="name"
+            rules={[{ required: true, message: 'Por favor, insira seu nome!' }]}
+          >
+            <Input prefix={<SmileOutlined />} placeholder="Seu melhor email" />
           </Form.Item>
-          <Form.Item name="email">
-            <Input placeholder="Seu melhor email" />
+          <Form.Item
+            name="email"
+            rules={[
+              { required: true, message: 'Por favor, insira seu email.' },
+              {
+                type: 'email',
+                message: 'Por favor, insira um email válido.',
+              },
+            ]}
+          >
+            <Input prefix={<UserOutlined />} placeholder="Seu melhor email" />
           </Form.Item>
-          <Form.Item name="password">
-            <Input placeholder="Senha" type="password" />
+          <Form.Item
+            name="password"
+            rules={[
+              { required: true, message: 'Por favor, insira sua senha.' },
+            ]}
+          >
+            <Input.Password
+              prefix={<LockOutlined />}
+              iconRender={(visible) =>
+                visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+              }
+              placeholder="Senha"
+            />
           </Form.Item>
 
           <Button

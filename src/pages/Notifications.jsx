@@ -8,6 +8,8 @@ import Layout from '../components/Layout'
 import { hideLoading, showLoading } from '../redux/alertsSlice'
 import { setUser } from '../redux/userSlice'
 
+import { Helmet } from 'react-helmet-async'
+
 function Notifications() {
   const { user } = useSelector((state) => state.user)
   const navigate = useNavigate()
@@ -63,6 +65,9 @@ function Notifications() {
   }
   return (
     <Layout>
+      <Helmet>
+        <title>Cleber Mendes BarberShop | Notificações</title>
+      </Helmet>
       <h1 className="page-title">Notificações</h1>
       <hr />
 

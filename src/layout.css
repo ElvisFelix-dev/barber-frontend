@@ -82,21 +82,42 @@ i {
 }
 
 .header-action-icon{
-    font-size: 30px;
-    color: black !important;
-    cursor: pointer;
-    padding-left: 10px;
+  font-size: 30px;
+  color: black !important;
+  cursor: pointer;
+  padding-left: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.header-action-icon-avatar{
+  font-size: 30px;
+  color: black !important;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.badge-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 .ant-scroll-number-only-unit{
-     padding-right: -10px !important;
-     padding-bottom: -10px !important;
+  padding-right: -10px !important;
+  padding-bottom: -10px !important;
 }
 
 @media screen and (max-width: 768px){
-  
+
     .menu{
         padding: 0 5px;
     }
-    
+
 }

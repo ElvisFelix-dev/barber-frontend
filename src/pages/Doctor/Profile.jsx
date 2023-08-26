@@ -9,6 +9,8 @@ import { useNavigate, useParams } from 'react-router-dom'
 import DoctorForm from '../../components/DoctorForm'
 import moment from 'moment'
 
+import { Helmet } from 'react-helmet-async'
+
 function Profile() {
   const { user } = useSelector((state) => state.user)
   const params = useParams()
@@ -77,6 +79,9 @@ function Profile() {
   }, [])
   return (
     <Layout>
+      <Helmet>
+        <title>Cleber Mendes BarberShop | Perfil do Barber</title>
+      </Helmet>
       <h1 className="page-title">Perfil do Barber</h1>
       <hr />
       {doctor && <DoctorForm onFinish={onFinish} initivalValues={doctor} />}

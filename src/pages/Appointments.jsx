@@ -7,6 +7,8 @@ import api from '../service/api'
 import { Table } from 'antd'
 import moment from 'moment'
 
+import { Helmet } from 'react-helmet-async'
+
 function Appointments() {
   const [appointments, setAppointments] = useState([])
   const dispatch = useDispatch()
@@ -65,6 +67,9 @@ function Appointments() {
   }, [])
   return (
     <Layout>
+      <Helmet>
+        <title>Cleber Mendes BarberShop | Agendamentos</title>
+      </Helmet>
       <h1 className="page-title">Agendamentos</h1>
       <hr />
       <Table columns={columns} dataSource={appointments} />

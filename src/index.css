@@ -24,8 +24,6 @@ body{
 
 /* antd override */
 input{
-  border-radius: 2px !important;
-  border: 1px solid rgba(128, 128, 128, 0.521) !important;
   height: 40px !important;
   border-radius: 5px !important;
   background: #232129;
@@ -34,7 +32,6 @@ input{
 input:focus , .ant-picker{
   outline: none !important;
   box-shadow: none !important;
-  border: 1px solid gray !important;
 }
 
 label{
@@ -42,7 +39,7 @@ label{
   color: black !important;
 }
 .ant-form-item{
-  margin: 10px 0 !important;; 
+  margin: 10px 0 !important;;
 }
 .ant-picker-input input{
   border: none !important;
@@ -124,7 +121,13 @@ p{
 }
 
 .anchor{
-  color: black !important;
+  color: #166534 !important;
+  cursor: pointer;
+  font-size: 16px !important;
+}
+
+.anchor-delete{
+  color: #991b1b !important;
   cursor: pointer;
   font-size: 16px !important;
 }
@@ -159,8 +162,8 @@ p{
 }
 
 .logo {
-  width: 90px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
 
   border-radius: 50%;
 }
@@ -185,9 +188,11 @@ p{
 
 .link-social {
   color: #334155;
+  text-decoration: none;
 }
 
 .link-social:hover {
   color: #64748b;
+
 }
 

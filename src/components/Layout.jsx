@@ -4,9 +4,10 @@ import { useState } from 'react'
 import '../layout.css'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { Badge, Row, Col } from 'antd'
+import { Badge, Row, Col, Avatar } from 'antd'
+import { UserOutlined } from '@ant-design/icons'
 
-import imgLogo from '../assets/imgLogo.png'
+import cleberLogo from '../assets/cleberLogo.jpg'
 
 function Layout({ children }) {
   const [collapsed, setCollapsed] = useState(false)
@@ -14,6 +15,7 @@ function Layout({ children }) {
 
   const navigate = useNavigate()
   const location = useLocation()
+
   const userMenu = [
     {
       name: 'Home',
@@ -88,7 +90,7 @@ function Layout({ children }) {
               className="sidebar-header"
               style={{ textAlign: 'center' }}
             >
-              <img src={imgLogo} className="logo" alt="Logo" />
+              <img src={cleberLogo} className="logo" alt="Logo" />
               <h1 className="role" style={{ marginTop: '10px' }}>
                 {role}
               </h1>
@@ -138,10 +140,17 @@ function Layout({ children }) {
 
             <div className="d-flex align-items-center px-4">
               <Badge
-                count={user?.unseenNotifications.length}
-                onClick={() => navigate('/notifications')}
+                count={user?.unseenNotifications?.length || 0} // Certifica-se de que seja um número válido
+                onClick={() => {
+                  navigate('/notifications')
+                }}
+                className="badge-container"
               >
-                <i className="ri-notification-line header-action-icon px-3"></i>
+                <Avatar
+                  icon={<UserOutlined />}
+                  className="header-action-icon-avatar"
+                  style={{ backgroundColor: '#87d068' }}
+                />
               </Badge>
 
               <Link

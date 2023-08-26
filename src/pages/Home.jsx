@@ -8,6 +8,8 @@ import Doctor from '../components/Doctor'
 import { useDispatch } from 'react-redux'
 import { showLoading, hideLoading } from '../redux/alertsSlice'
 
+import { Helmet } from 'react-helmet-async'
+
 function Home() {
   const [doctors, setDoctors] = useState([])
   const dispatch = useDispatch()
@@ -33,6 +35,9 @@ function Home() {
   }, [])
   return (
     <Layout>
+      <Helmet>
+        <title>Cleber Mendes BarberShop | Home</title>
+      </Helmet>
       <Row gutter={20}>
         {doctors.map((doctor) => (
           <Col span={8} xs={24} sm={24} lg={8}>

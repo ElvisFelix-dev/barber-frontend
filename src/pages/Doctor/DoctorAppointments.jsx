@@ -6,7 +6,11 @@ import { showLoading, hideLoading } from '../../redux/alertsSlice'
 import { toast } from 'react-toastify'
 import api from '../../service/api'
 import { Table } from 'antd'
+import { CheckOutlined, CloseOutlined } from '@ant-design/icons'
+
 import moment from 'moment'
+
+import { Helmet } from 'react-helmet-async'
 
 function DoctorAppointments() {
   const [appointments, setAppointments] = useState([])
@@ -73,7 +77,7 @@ function DoctorAppointments() {
       dataIndex: 'createdAt',
       render: (text, record) => (
         <span>
-          {moment(record.date).format('DD-MM-YYYY')}{' '}
+          {moment(record.date).format('DD-MM-YYYY')} / {''}
           {moment(record.time).format('HH:mm')}
         </span>
       ),
@@ -93,13 +97,13 @@ function DoctorAppointments() {
                 className="anchor px-2"
                 onClick={() => changeAppointmentStatus(record, 'approved')}
               >
-                Aprovar
+                <CheckOutlined color="#166534" />
               </h1>
               <h1
-                className="anchor"
+                className="anchor-delete"
                 onClick={() => changeAppointmentStatus(record, 'rejected')}
               >
-                Rejeitar
+                <CloseOutlined color="#991b1b" />
               </h1>
             </div>
           )}
@@ -112,6 +116,9 @@ function DoctorAppointments() {
   }, [])
   return (
     <Layout>
+      <Helmet>
+        <title>Cleber Mendes BarberShop | Agendamentos</title>
+      </Helmet>
       <h1 className="page-header">Agendamentos</h1>
       <hr />
       <Table columns={columns} dataSource={appointments} />
