@@ -19,11 +19,6 @@ function BookAppointment() {
   const params = useParams()
   const dispatch = useDispatch()
 
-  const formattedPrice = new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-  }).format(doctor.feePerCunsultation)
-
   const getDoctorData = async () => {
     try {
       dispatch(showLoading())
@@ -149,7 +144,10 @@ function BookAppointment() {
               </p>
               <p>
                 <b>Valor do Corte : </b>
-                {formattedPrice}
+                {new Intl.NumberFormat('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL',
+                }).format(doctor.feePerCunsultation)}
               </p>
               <p>
                 <b>Instagram : </b>
