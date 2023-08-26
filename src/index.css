@@ -171,6 +171,7 @@ p{
 .text-link {
   color: #1d4ed8;
   transition: color 0.2s;
+  text-decoration: none;
 }
 
 .text-link:hover {
@@ -180,6 +181,7 @@ p{
 .text-link-2 {
   color: #166534;
   transition: color 0.2s;
+  text-decoration: none;
 }
 
 .text-link-2:hover {
