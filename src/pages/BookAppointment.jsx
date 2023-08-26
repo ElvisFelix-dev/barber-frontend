@@ -19,6 +19,11 @@ function BookAppointment() {
   const params = useParams()
   const dispatch = useDispatch()
 
+  const formattedPrice = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  }).format(doctor.feePerCunsultation)
+
   const getDoctorData = async () => {
     try {
       dispatch(showLoading())
@@ -129,7 +134,14 @@ function BookAppointment() {
               </h1>
               <p>
                 <b>Celular/Whatsaap : </b>
-                {doctor.phoneNumber}
+                <a
+                  className="link-social"
+                  href={`https://wa.me/55${doctor.phoneNumber}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {doctor.phoneNumber}
+                </a>
               </p>
               <p>
                 <b>Endereço : </b>
@@ -137,11 +149,18 @@ function BookAppointment() {
               </p>
               <p>
                 <b>Valor do Corte : </b>
-                {doctor.feePerCunsultation}
+                {formattedPrice}
               </p>
               <p>
                 <b>Instagram : </b>
-                {doctor.website}
+                <a
+                  className="link-social"
+                  href={`http://www.instagram.com/${doctor.website}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {doctor.website}
+                </a>
               </p>
               <div className="d-flex flex-column pt-2 mt-2">
                 <DatePicker

@@ -61,7 +61,7 @@ function DoctorForm({ onFinish, initivalValues }) {
               },
             ]}
           >
-            <Input placeholder="Celular/Whatsaap" type="tel" />
+            <Input placeholder="Ex: 16123457898" type="tel" />
           </Form.Item>
         </Col>
 
