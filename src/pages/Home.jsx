@@ -1,35 +1,36 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
-import api from "../service/api";
-import Layout from "../components/Layout";
-import { Col, Row } from "antd";
-import Doctor from "../components/Doctor";
-import { useDispatch } from "react-redux";
-import { showLoading, hideLoading } from "../redux/alertsSlice";
+import { useEffect, useState } from 'react'
+import api from '../service/api'
+import Layout from '../components/Layout'
+import { Col, Row } from 'antd'
+import Doctor from '../components/Doctor'
+import { useDispatch } from 'react-redux'
+import { showLoading, hideLoading } from '../redux/alertsSlice'
+
 function Home() {
-  const [doctors, setDoctors] = useState([]);
-  const dispatch = useDispatch();
+  const [doctors, setDoctors] = useState([])
+  const dispatch = useDispatch()
   const getData = async () => {
     try {
       dispatch(showLoading())
-      const response = await api.get("/api/user/get-all-approved-doctors", {
+      const response = await api.get('/api/user/get-all-approved-doctors', {
         headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
+          Authorization: 'Bearer ' + localStorage.getItem('token'),
         },
-      });
+      })
       dispatch(hideLoading())
       if (response.data.success) {
-        setDoctors(response.data.data);
+        setDoctors(response.data.data)
       }
     } catch (error) {
       dispatch(hideLoading())
     }
-  };
+  }
 
   useEffect(() => {
-    getData();
-  }, []);
+    getData()
+  }, [])
   return (
     <Layout>
       <Row gutter={20}>
@@ -40,7 +41,7 @@ function Home() {
         ))}
       </Row>
     </Layout>
-  );
+  )
 }
 
-export default Home;
+export default Home

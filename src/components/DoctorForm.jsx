@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { Button, Col, Form, Input, Row, TimePicker } from "antd";
-import * as Yup from 'yup';
+import { Button, Col, Form, Input, Row, TimePicker } from 'antd'
+import * as Yup from 'yup'
 
-import moment from "moment";
+import moment from 'moment'
 
 function DoctorForm({ onFinish, initivalValues }) {
   return (
@@ -14,13 +14,13 @@ function DoctorForm({ onFinish, initivalValues }) {
         ...initivalValues,
         ...(initivalValues && {
           timings: [
-            moment(initivalValues?.timings[0], "HH:mm"),
-            moment(initivalValues?.timings[1], "HH:mm"),
+            moment(initivalValues?.timings[0], 'HH:mm'),
+            moment(initivalValues?.timings[1], 'HH:mm'),
           ],
         }),
       }}
     >
-      <h1 className="card-title mt-3">Personal Information</h1>
+      <h1 className="card-title mt-3">Informação Pessoal</h1>
       <Row gutter={20}>
         <Col span={8} xs={24} sm={24} lg={8}>
           <Form.Item
@@ -52,9 +52,11 @@ function DoctorForm({ onFinish, initivalValues }) {
               {
                 validator: (_, value) => {
                   if (!value || /^\d+$/.test(value)) {
-                    return Promise.resolve();
+                    return Promise.resolve()
                   }
-                  return Promise.reject(new Error('Please enter a valid Celular/Whatsaap.'));
+                  return Promise.reject(
+                    new Error('Por favor entre com Celular/Whatsaap.'),
+                  )
                 },
               },
             ]}
@@ -70,7 +72,7 @@ function DoctorForm({ onFinish, initivalValues }) {
             name="website"
             rules={[{ required: true }]}
           >
-            <Input placeholder="Instagram" />
+            <Input placeholder="Ex: @seunome" />
           </Form.Item>
         </Col>
         <Col span={8} xs={24} sm={24} lg={8}>
@@ -135,7 +137,7 @@ function DoctorForm({ onFinish, initivalValues }) {
         </Button>
       </div>
     </Form>
-  );
+  )
 }
 
-export default DoctorForm;
+export default DoctorForm

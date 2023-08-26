@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
 
-import { Navigate } from "react-router-dom";
+import { Navigate } from 'react-router-dom'
 
 function PublicRoute(props) {
-  if (localStorage.getItem("token")) {
-    return <Navigate to="/" />;
+  if (localStorage.getItem('token')) {
+    return <Navigate to="/" />
   } else {
-    return props.children;
+    return props.children
   }
 }
 
-export default PublicRoute;
+export default PublicRoute

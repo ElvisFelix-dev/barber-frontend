@@ -3,6 +3,10 @@
 *{
   font-family: 'Roboto', sans-serif !important;
   text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: 0;
 }
 
 html::-webkit-scrollbar{
@@ -11,6 +15,7 @@ html::-webkit-scrollbar{
 
 html{
   scrollbar-width: none;
+  background-color: #181818;
 }
 
 body{
@@ -22,12 +27,16 @@ input{
   border-radius: 2px !important;
   border: 1px solid rgba(128, 128, 128, 0.521) !important;
   height: 40px !important;
+  border-radius: 5px !important;
+  background: #232129;
 }
+
 input:focus , .ant-picker{
   outline: none !important;
   box-shadow: none !important;
   border: 1px solid gray !important;
 }
+
 label{
   font-size: 16px !important;
   color: black !important;
@@ -72,27 +81,42 @@ label{
   font-size: 22px;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.627);
-
 }
+
 .normal-text{
   font-size: 1rem;
 }
+
 .card{
   box-shadow: 0 0 2px rgb(189, 188, 188);
-  border-radius: 0 !important;
+  border-radius: 15px !important;
+  background-color: #9ca3af !important;
 }
+
 .primary-button{
-  background-color: #005555 !important;
-  border-color: #005555 !important;
+  background-color: #1d4ed8 !important;
   height: 40px !important;
   width: 100% !important;
   color: white !important;
   font-size: 16px !important;
   width: max-content !important;
+  border-radius: 5px !important;
 }
+
+.secundary-button {
+  background-color: #15803d !important;
+  height: 40px !important;
+  width: 100% !important;
+  color: white !important;
+  font-size: 16px !important;
+  width: max-content !important;
+  border-radius: 5px !important;
+}
+
 .full-width-button{
   width: 100% !important;
 }
+
 p{
   color: rgba(0, 0, 0, 0.673) !important;
   padding: 0 !important;
@@ -104,9 +128,6 @@ p{
   cursor: pointer;
   font-size: 16px !important;
 }
-.anchor:hover{
-  text-decoration: underline !important;
-}
 
 .cursor-pointer{
   cursor: pointer;
@@ -116,11 +137,11 @@ p{
 /* authentication pages */
 
 .authentication{
-   height: 100vh;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   background-color: #005555;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #181818;
 }
 .authentication-form{
   width: 400px;
@@ -129,8 +150,8 @@ p{
 .authentication .card-title{
   font-size: 1.5rem;
   font-weight: bold;
-  background-color: orangered;
-  color: white !important;
+  background-color: #475569;
+  color: #d1d5db !important;
   max-width: max-content !important;
   padding: 7px 15px;
   margin-left: -40px;
@@ -143,3 +164,30 @@ p{
 
   border-radius: 50%;
 }
+
+.text-link {
+  color: #1d4ed8;
+  transition: color 0.2s;
+}
+
+.text-link:hover {
+  color: #003de6;
+}
+
+.text-link-2 {
+  color: #166534;
+  transition: color 0.2s;
+}
+
+.text-link-2:hover {
+  color: #15803d;
+}
+
+.link-social {
+  color: #334155;
+}
+
+.link-social:hover {
+  color: #64748b;
+}
+

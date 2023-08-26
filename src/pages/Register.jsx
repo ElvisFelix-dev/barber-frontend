@@ -1,31 +1,31 @@
-import { Button, Form, Input, Row, Col } from "antd";
-import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import api from "../service/api";
-import toast from "react-hot-toast";
-import { hideLoading, showLoading } from "../redux/alertsSlice";
+import { Button, Form, Input, Row, Col } from 'antd'
+import { Link, useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import api from '../service/api'
+import { toast } from 'react-toastify'
+import { hideLoading, showLoading } from '../redux/alertsSlice'
 
 import imgLogo from '../assets/imgLogo.png'
 
 function Register() {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const onFinish = async (values) => {
     try {
-      dispatch(showLoading());
-      const response = await api.post("/api/user/register", values);
-      dispatch(hideLoading());
+      dispatch(showLoading())
+      const response = await api.post('/api/user/register', values)
+      dispatch(hideLoading())
       if (response.data.success) {
-        toast.success(response.data.message);
-        navigate("/login");
+        toast.success(response.data.message)
+        navigate('/login')
       } else {
-        toast.error(response.data.message);
+        toast.error(response.data.message)
       }
     } catch (error) {
-      dispatch(hideLoading());
-      toast.error("Algo deu Errado");
+      dispatch(hideLoading())
+      toast.error('Algo deu Errado')
     }
-  };
+  }
 
   return (
     <div className="authentication">
@@ -33,36 +33,44 @@ function Register() {
         <div>
           <Row justify="center">
             <Col>
-              <img className="logo" src={imgLogo} alt="Logo" style={{ marginBottom: '20px' }}/>
+              <img
+                className="logo"
+                src={imgLogo}
+                alt="Logo"
+                style={{ marginBottom: '20px' }}
+              />
             </Col>
-            </Row>
+          </Row>
         </div>
-        <h1 className="card-title">Nice To Meet U</h1>
+        <h1 className="card-title">Fazer Cadastro</h1>
         <Form layout="vertical" onFinish={onFinish}>
-          <Form.Item label="Name" name="name">
-            <Input placeholder="Name" />
+          <Form.Item name="name">
+            <Input placeholder="Nome" />
           </Form.Item>
-          <Form.Item label="Email" name="email">
-            <Input placeholder="Email" />
+          <Form.Item name="email">
+            <Input placeholder="Seu melhor email" />
           </Form.Item>
-          <Form.Item label="Password" name="password">
-            <Input placeholder="Password" type="password" />
+          <Form.Item name="password">
+            <Input placeholder="Senha" type="password" />
           </Form.Item>
 
           <Button
-            className="primary-button my-2 full-width-button"
+            className="secundary-button my-2 full-width-button"
             htmlType="submit"
           >
-            REGISTER
+            Cadastrar
           </Button>
 
-          <Link to="/login" className="anchor mt-2" style={{ textDecoration: 'none' }}>
-            CLICK HERE TO LOGIN
-          </Link>
+          <span>
+            Já tem uma conta?{' '}
+            <Link to="/login">
+              <a className="text-link-2">Criar Conta</a>
+            </Link>
+          </span>
         </Form>
       </div>
     </div>
-  );
+  )
 }
 
-export default Register;
+export default Register
