@@ -25,11 +25,6 @@ function Layout({ children }) {
       path: '/appointments',
       icon: 'ri-file-list-line',
     },
-    {
-      name: 'Add Barber',
-      path: '/apply-barber',
-      icon: 'ri-hospital-line',
-    },
   ]
 
   const doctorMenu = [
