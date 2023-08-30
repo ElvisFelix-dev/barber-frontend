@@ -126,12 +126,7 @@ function Login() {
                 <a className="text-link">Criar Conta</a>
               </Link>
             </span>
-            <p>
-              Esqueceu a senha?{' '}
-              <Link to="/forgot-password">
-                <a className="text-link">Recuperar senha</a>
-              </Link>
-            </p>
+            
           </Form.Item>
         </Form>
       </div>
