@@ -17,6 +17,7 @@ import Profile from './pages/Doctor/Profile'
 import BookAppointment from './pages/BookAppointment'
 import Appointments from './pages/Appointments'
 import DoctorAppointments from './pages/Doctor/DoctorAppointments'
+import ForgotPassword from './pages/ForgotPassword'
 
 import './App.css'
 
@@ -45,6 +46,14 @@ export function App() {
             element={
               <PublicRoute>
                 <Register />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/forgot-password"
+            element={
+              <PublicRoute>
+                <ForgotPassword />
               </PublicRoute>
             }
           />

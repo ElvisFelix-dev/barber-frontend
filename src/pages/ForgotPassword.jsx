@@ -1,10 +1,5 @@
 import { Button, Form, Input, Row, Col } from 'antd'
-import {
-  UserOutlined,
-  LockOutlined,
-  EyeInvisibleOutlined,
-  EyeTwoTone,
-} from '@ant-design/icons'
+import { UserOutlined } from '@ant-design/icons'
 
 import { toast } from 'react-toastify'
 import { useDispatch } from 'react-redux'
@@ -18,7 +13,7 @@ import { hideLoading, showLoading } from '../redux/alertsSlice'
 
 import cleberLogo from '../assets/cleberLogo.jpg'
 
-function Login() {
+export default function ForgotPassword() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -43,17 +38,19 @@ function Login() {
   const onFinish = async (values) => {
     try {
       dispatch(showLoading())
-      const response = await api.post('/api/user/login', values)
+      const response = await api.post('/api/user/forgot-password', values)
       dispatch(hideLoading())
+
       if (response.data.success) {
         toast.success(response.data.message)
         localStorage.setItem('token', response.data.data)
-        navigate('/')
+        navigate('/forgot-password')
       } else {
         toast.error(response.data.message)
       }
     } catch (error) {
       dispatch(hideLoading())
+      console.error(error) // Melhore o tratamento de erro aqui
       toast.error('Algo deu Errado')
     }
   }
@@ -76,7 +73,7 @@ function Login() {
             </Col>
           </Row>
         </div>
-        <h1 className="card-title">Seja Bem vindo</h1>
+        <h1 className="card-title">Recuperar Senha</h1>
         <Form
           layout="vertical"
           onFinish={onFinish}
@@ -98,27 +95,13 @@ function Login() {
               type="email"
             />
           </Form.Item>
-          <Form.Item
-            name="password"
-            rules={[
-              { required: true, message: 'Por favor, insira sua senha.' },
-            ]}
-          >
-            <Input.Password
-              prefix={<LockOutlined />}
-              iconRender={(visible) =>
-                visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
-              }
-              placeholder="Senha"
-            />
-          </Form.Item>
 
           <Form.Item>
             <Button
               className="primary-button my-2 full-width-button"
               htmlType="submit"
             >
-              Conectar
+              Enviar email
             </Button>
             <span>
               Não tem uma conta?{' '}
@@ -127,9 +110,9 @@ function Login() {
               </Link>
             </span>
             <p>
-              Esqueceu a senha?{' '}
-              <Link to="/forgot-password">
-                <a className="text-link">Recuperar senha</a>
+              Já tem uma conta?{' '}
+              <Link to="/login">
+                <a className="text-link">Conectar</a>
               </Link>
             </p>
           </Form.Item>
@@ -138,5 +121,3 @@ function Login() {
     </div>
   )
 }
-
-export default Login

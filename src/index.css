@@ -22,6 +22,10 @@ body{
   background-color: #181818;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* antd override */
 input{
   height: 40px !important;
