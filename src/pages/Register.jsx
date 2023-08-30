@@ -62,7 +62,7 @@ function Register() {
             name="name"
             rules={[{ required: true, message: 'Por favor, insira seu nome!' }]}
           >
-            <Input prefix={<SmileOutlined />} placeholder="Seu melhor email" />
+            <Input prefix={<SmileOutlined />} placeholder="Seu nome" />
           </Form.Item>
           <Form.Item
             name="email"
